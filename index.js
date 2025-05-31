@@ -2,11 +2,13 @@ const express = require('express')
 const mongoose = require('mongoose');
 const User = require('./models/user.model.js')
 const userRoute = require("./routes/user.route.js")
+const cors = require('cors')
 const app = express()
 
 //middleware
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(cors())
 
 //routes
 app.use('/api/users',userRoute)
